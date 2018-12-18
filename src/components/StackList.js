@@ -9,7 +9,7 @@ class StackList extends Component {
         {
           stacks.map(stack => {
             return(
-              <Link to='/stack'>
+              <Link key={stack.id} to='/stack'>
                 <h4 key={stack.id}>{stack.title}</h4>
               </Link>
             )
