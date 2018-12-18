@@ -1,5 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from './components/app';
+import Stack from './components/Stack';
+
+ReactDOM.render(
+  <BrowserRouter>
+    <Switch>
+      <Route exact path='/' component={ App } />
+      <Route path='/stack' component={ Stack } />
+    </Switch>
+  </BrowserRouter>, 
+  document.getElementById('root')
+);
