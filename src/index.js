@@ -9,6 +9,8 @@ import Stack from './components/Stack';
 import { setStack } from './actions';
 import rootReducer from './reducers';
 
+import './index.css';
+
 /**
  * Creating a store by using the createStore functions from
  * redux.

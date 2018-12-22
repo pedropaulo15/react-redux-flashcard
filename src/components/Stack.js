@@ -11,7 +11,9 @@ class Stack extends Component {
 
     return (
       <div>
-        <Link to='/'>Home</Link>
+        <Link className='link-home' to='/'>
+          <h4>Home</h4>
+        </Link>
         <h3>{title}</h3>
         <br />
         {
