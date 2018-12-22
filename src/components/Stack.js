@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'; // Connects components to the store
 import { Link } from 'react-router-dom';
 
+import Card from './Card';
+
 class Stack extends Component {
   render() {
     // console.log('stack props', this.props);
@@ -16,7 +18,7 @@ class Stack extends Component {
           cards.map(card => {
             return(
               <div key={card.id}>
-                {card.prompt}
+                <Card key={card.id} card={card}/>
               </div>
             )
           })
