@@ -1,4 +1,9 @@
-import { SET_STACK } from '../actions';
+/** By importing the combineReducers functions, allows us to combine
+ * two reducers and export them all as default.
+ */
+import { combineReducers } from 'redux';
+
+import { SET_STACK, LOAD_STACKS } from '../actions';
 
 /**
  * This stack function represents the reducer, which will
@@ -19,4 +24,13 @@ function stack(state = {}, action) {
   }
 }
 
-export default stack;
+function stacks(state = [], action) {
+  switch (action.type) {
+    case LOAD_STACKS:
+      return action.stacks;
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({ stack, stacks}); // Exporting two reducers as default.

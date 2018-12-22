@@ -41,7 +41,7 @@ class Stack extends Component {
  * @param state represents the redux store
  */
 function mapStateToProps(state) {
-  return { stack: state } // this state is coming from the reducer
+  return { stack: state.stack } // this state is coming from the reducer
 }
 
 export default connect(mapStateToProps, null)(Stack);
