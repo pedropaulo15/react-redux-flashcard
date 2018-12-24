@@ -15,12 +15,25 @@ class StackForm extends Component {
 
   addCard() {
     const { cards } = this.state;
-    cards.push({ id: cards.length, propmt: '', answer: '' });
+    cards.push({ id: cards.length, prompt: '', answer: '' });
     this.setState({ cards });
   }
 
-  render() {
+  updateCardValue(event, index, value) {
+    const { cards } = this.state;
+
+    cards[index][value] = event.target.value;
+
+    this.setState({ cards });
+  }
+
+  addStack() {
     console.log('StackForm state', this.state);
+
+  }
+
+  render() {
+    // console.log('StackForm state', this.state);
     return (
       <div>
         <Link className='link-home' to='/'>
@@ -32,11 +45,35 @@ class StackForm extends Component {
           <FormGroup>
             <ControlLabel>Title:</ControlLabel>
             {' '}
-            <FormControl />
+            <FormControl onChange={event => this.setState({ title: event.target.value })}/>
           </FormGroup>
+          {
+            this.state.cards.map((card, index) => {
+              return(
+                <div key={card.id}>
+                  <br />
+                  <FormGroup>
+                    <ControlLabel>Prompt:</ControlLabel>
+                    {' '}
+                    <FormControl
+                      onChange={event => this.updateCardValue(event, index, 'prompt')}
+                    />
+                    {' '}
+                    <ControlLabel>Answer:</ControlLabel>
+                    {' '}
+                    <FormControl 
+                      onChange={event => this.updateCardValue(event, index, 'answer')}
+                    />
+                  </FormGroup>
+                </div>
+              )
+            })
+          }
         </Form>
         <br />
         <Button onClick={() => this.addCard()}>Add Card</Button>
+        {' '}
+        <Button onClick={() => this.addStack()}>Save New Stack</Button>
       </div>
     )
   }
