@@ -4,7 +4,7 @@ import stacks from '../data/stacks.json';
 import { Link } from 'react-router-dom';
 import { setStack, loadStacks } from '../actions';
 
-class StackList extends Component {
+export class StackList extends Component {
 
   /**
    * Just loading the stack list from the store once and on the
