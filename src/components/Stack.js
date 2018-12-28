@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Card from './Card';
 
-class Stack extends Component {
+export class Stack extends Component {
   render() {
     // console.log('stack props', this.props);
     const { title, cards } = this.props.stack;
