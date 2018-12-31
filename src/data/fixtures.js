@@ -11,3 +11,9 @@ export const stacks = [
   {id: 0, title: 'First Stack Title'},
   {id: 1, title: 'Second Stack Title'}
 ]
+
+export const card = {
+  card: {
+    id: 0, prompt: 'test prompt', answer: 'test answer'
+  }
+}
