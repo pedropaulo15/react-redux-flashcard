@@ -4,30 +4,35 @@ import { Link } from 'react-router-dom';
 
 import Card from './Card';
 
-export class Stack extends Component {
-  render() {
-    // console.log('stack props', this.props);
-    const { title, cards } = this.props.stack;
-
-    return (
-      <div>
-        <Link className='link-home' to='/'>
-          <h4>Home</h4>
-        </Link>
-        <h3>{title}</h3>
-        <br />
-        {
-          cards.map(card => {
-            return(
-              <div key={card.id}>
-                <Card key={card.id} card={card}/>
-              </div>
-            )
-          })
-        }
-      </div>
-    )
-  }
+/**
+ * Since the Stack component does not have state, it can be
+ * created as an stateless component.
+ * 
+ * The props would normaly be accesible by this.props.stack; 
+ * however it would be better to pass it as a param for the
+ * stateless component, by passing { stack: { title, cards } }.
+ * 
+ * @param {props} title and cards from the stack
+ */
+export const Stack = ({ stack: { title, cards } }) => {
+  return (
+    <div>
+      <Link className='link-home' to='/'>
+        <h4>Home</h4>
+      </Link>
+      <h3>{title}</h3>
+      <br />
+      {
+        cards.map(card => {
+          return(
+            <div key={card.id}>
+              <Card key={card.id} card={card}/>
+            </div>
+          )
+        })
+      }
+    </div>
+  )
 }
 
 /** This function maps the state of the redux store, on the
