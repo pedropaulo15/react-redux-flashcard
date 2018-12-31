@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux'; // This component provides the store to the entire app.
 
-import App from './components/app';
+import App from './components/App';
 import Stack from './components/Stack';
 import StackForm from './components/StackForm';
 import { setStack } from './actions';
